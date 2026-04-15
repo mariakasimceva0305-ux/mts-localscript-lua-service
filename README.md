@@ -10,6 +10,8 @@
 
 Официальная приёмка решения выполняется **только** в репозитории **GitLab**, выданном платформой (**«Создать репозиторий»** в интерфейсе, вход через **True Tech Arena**). Убедитесь, что к дедлайну в этом репозитории актуальный код и документация.
 
+**Репозиторий сдачи (GitLab):** [git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service](https://git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service/-/tree/main)
+
 Публикация копии на **GitHub** допустима для портфолио или удобства команды, но **не заменяет** GitLab-сдачу. **CI/CD площадки хакатона не используются** — воспроизводимость проверяется локально (рекомендуется Docker).
 
 ---
@@ -158,11 +160,11 @@ python -u tests/run_heavy_four.py --base-url http://127.0.0.1:8000 --timeout 720
 
 ---
 
-## Репозиторий на GitHub
+## Репозитории
 
-- **URL:** [github.com/mariakasimceva0305-ux/mts-localscript-lua-service](https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service)
-- **Description:** Local RAG + Ollama pipeline for MWS Octapi LocalScript: FastAPI, BM25 retrieval, Lua 5.5 validation, Docker Compose.
-- **Topics:** `lua`, `ollama`, `rag`, `fastapi`, `docker`, `bm25`, `mws-octapi`, `localscript`, `code-generation`, `hackathon`
+**GitLab (сдача хакатона):** [git.truetecharena.ru/…/mts-localscript-lua-service](https://git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service/-/tree/main)
+
+**GitHub (зеркало):** [github.com/mariakasimceva0305-ux/mts-localscript-lua-service](https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service) — description и topics заданы в настройках репозитория на GitHub.
 
 ---
 
