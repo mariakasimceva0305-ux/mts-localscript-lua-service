@@ -8,11 +8,24 @@
 
 ## Сдача на хакатоне (репозиторий организаторов)
 
-Официальная приёмка решения выполняется **только** в репозитории **GitLab**, выданном платформой (**«Создать репозиторий»** в интерфейсе, вход через **True Tech Arena**). Убедитесь, что к дедлайну в этом репозитории актуальный код и документация.
+Официальная приёмка — в **командном** проекте на GitLab True Tech Arena. К дедлайну в нём должен быть актуальный `main` и документация.
 
-**Репозиторий сдачи (GitLab):** [git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service](https://git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service/-/tree/main)
+**Репозиторий команды (основной для жюри):**  
+[tta/true-tech-hack2026-localscript/dsc/task-repo](https://git.truetecharena.ru/tta/true-tech-hack2026-localscript/dsc/task-repo)
 
-Публикация копии на **GitHub** допустима для портфолио или удобства команды, но **не заменяет** GitLab-сдачу. **CI/CD площадки хакатона не используются** — воспроизводимость проверяется локально (рекомендуется Docker).
+Публикация в него с локальной машины (после входа в GitLab под учётной записью с доступом к проекту):
+
+```powershell
+cd "C:\Users\Мария\OneDrive\Desktop\node_modules"
+git remote add tta-task https://git.truetecharena.ru/tta/true-tech-hack2026-localscript/dsc/task-repo.git
+git push -u tta-task main
+```
+
+Если в `task-repo` уже есть коммиты (например README от площадки), возможны отказ non-fast-forward или конфликт — тогда: `git fetch tta-task`, согласовать историю (`merge` / `rebase`) или по регламенту осторожно `git push --force-with-lease tta-task main`.
+
+**Личный репозиторий (копия):** [mariakasimceva/mts-localscript-lua-service](https://git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service/-/tree/main) — не подменяет командный `task-repo`, если в правилах указан групповой проект.
+
+Публикация на **GitHub** — опционально для портфолио. **CI/CD площадки хакатона не используются** — воспроизводимость проверяется локально (рекомендуется Docker).
 
 ---
 
@@ -44,6 +57,9 @@
 Клонируйте репозиторий в каталог с **осмысленным именем** (не используйте имя `node_modules`).
 
 ```bash
+# Жюри / команда — эталонный проект на GitLab TTA:
+# git clone https://git.truetecharena.ru/tta/true-tech-hack2026-localscript/dsc/task-repo.git localscript-lua-service
+
 git clone https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service.git localscript-lua-service
 cd localscript-lua-service
 npm ci
@@ -162,7 +178,9 @@ python -u tests/run_heavy_four.py --base-url http://127.0.0.1:8000 --timeout 720
 
 ## Репозитории
 
-**GitLab (сдача хакатона):** [git.truetecharena.ru/…/mts-localscript-lua-service](https://git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service/-/tree/main)
+**GitLab — командный проект:** [tta/…/dsc/task-repo](https://git.truetecharena.ru/tta/true-tech-hack2026-localscript/dsc/task-repo)
 
-**GitHub (зеркало):** [github.com/mariakasimceva0305-ux/mts-localscript-lua-service](https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service) — description и topics заданы в настройках репозитория на GitHub.
+**GitLab — личная копия:** [mariakasimceva/mts-localscript-lua-service](https://git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service/-/tree/main)
+
+**GitHub (зеркало):** [github.com/mariakasimceva0305-ux/mts-localscript-lua-service](https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service)
 

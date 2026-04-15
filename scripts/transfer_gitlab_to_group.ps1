@@ -11,7 +11,7 @@
   $env:GITLAB_TOKEN = "glpat-xxxxxxxx"
   $env:GITLAB_HOST = "https://git.truetecharena.ru"
   $env:GITLAB_SOURCE_PATH = "mariakasimceva/mts-localscript-lua-service"
-  $env:GITLAB_TARGET_NAMESPACE = "имя-группы-команды"   # только путь группы, без имени репозитория
+  $env:GITLAB_TARGET_NAMESPACE = "tta/true-tech-hack2026-localscript/dsc"   # родительский namespace; имя репо задаётся отдельно при создании/переименовании
   powershell -ExecutionPolicy Bypass -File .\scripts\transfer_gitlab_to_group.ps1
 #>
 
