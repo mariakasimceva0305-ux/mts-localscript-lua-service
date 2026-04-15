@@ -166,8 +166,3 @@ python -u tests/run_heavy_four.py --base-url http://127.0.0.1:8000 --timeout 720
 
 **GitHub (зеркало):** [github.com/mariakasimceva0305-ux/mts-localscript-lua-service](https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service) — description и topics заданы в настройках репозитория на GitHub.
 
----
-
-## Лицензия и статус
-
-Код подготовлен как учебный / соревновательный baseline для **локального** воспроизведения. Внешние облачные LLM API не используются.
