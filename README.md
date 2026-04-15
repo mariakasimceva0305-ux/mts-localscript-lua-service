@@ -42,7 +42,7 @@
 Клонируйте репозиторий в каталог с **осмысленным именем** (не используйте имя `node_modules`).
 
 ```bash
-git clone <URL> localscript-lua-service
+git clone https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service.git localscript-lua-service
 cd localscript-lua-service
 npm ci
 npm run build:vendor
@@ -158,15 +158,11 @@ python -u tests/run_heavy_four.py --base-url http://127.0.0.1:8000 --timeout 720
 
 ---
 
-## Метаданные для GitHub (при создании репозитория)
+## Репозиторий на GitHub
 
-Рекомендуемые поля в настройках репозитория GitHub:
-
-- **Repository name:** `mts-localscript-lua-service` (или `mts-hack-lua-editor`, согласованно с командой).
-- **Description:** `Local RAG + Ollama pipeline for MWS Octapi LocalScript: FastAPI, BM25 retrieval, Lua 5.5 validation, Docker Compose.`
-- **Topics:** `lua`, `ollama`, `rag`, `fastapi`, `docker`, `bm25`, `mws-octapi`, `localscript`, `code-generation`.
-
-Website / homepage (опционально): `http://127.0.0.1:8000` после локального запуска (для публичного demo укажите свой URL).
+- **URL:** [github.com/mariakasimceva0305-ux/mts-localscript-lua-service](https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service)
+- **Description:** Local RAG + Ollama pipeline for MWS Octapi LocalScript: FastAPI, BM25 retrieval, Lua 5.5 validation, Docker Compose.
+- **Topics:** `lua`, `ollama`, `rag`, `fastapi`, `docker`, `bm25`, `mws-octapi`, `localscript`, `code-generation`, `hackathon`
 
 ---
 
