@@ -1,0 +1,391 @@
+{
+  "label": "reflexion_live",
+  "cases_files": [
+    "C:\\Users\\Мария\\OneDrive\\Desktop\\requirements (2)\\tests\\test_cases.json"
+  ],
+  "type_filter": null,
+  "base_url": "http://127.0.0.1:8000",
+  "client_env": {
+    "RETRIEVAL_TOP_K": null,
+    "MODEL_NAME": null,
+    "FALLBACK_MODEL": null,
+    "RETRIEVAL_DEBUG": null,
+    "OLLAMA_BASE_URL": null,
+    "CONTEXT_SIZE": null,
+    "OLLAMA_NUM_PREDICT": null
+  },
+  "summary": {
+    "total_cases": 18,
+    "http_non_200": 12,
+    "responses_parsed": 6,
+    "by_status": {
+      "error": 5,
+      "success": 1
+    },
+    "clarification_count": 0,
+    "clarification_rate": 0.0,
+    "expect_clarification_cases": 1,
+    "expect_clarification_hits": 0,
+    "expect_clarification_hit_rate": 0.0,
+    "generation_cases": 6,
+    "success_count": 1,
+    "success_rate": 0.16666666666666666,
+    "syntax_ok_count": 1,
+    "syntax_ok_rate": 0.16666666666666666,
+    "syntax_first_pass_count": 1,
+    "repair_attempted_count": 0,
+    "repair_success_count": 0,
+    "repair_success_rate": null,
+    "review_attempted_count": 0,
+    "review_helped_count": 0,
+    "review_used_rate": null,
+    "review_coverage_rate": 0.0,
+    "reflexion_fixed_case_ids": [],
+    "reflexion_no_help_case_ids": [],
+    "still_failing_case_ids": [
+      "last_array_element",
+      "try_count_increment",
+      "init_variable",
+      "new_array",
+      "sum_two_init"
+    ],
+    "iterations2_improved_case_ids": [],
+    "top5_weak_case_ids": [
+      "sum_two_init",
+      "new_array",
+      "last_array_element",
+      "try_count_increment",
+      "init_variable"
+    ],
+    "fallback_used_count": 0,
+    "fallback_used_rate": 0.0,
+    "used_model_distribution": {
+      "unknown": 5,
+      "qwen2.5-coder:7b": 1
+    },
+    "avg_latency_s": 80.98530994444431,
+    "p50_latency_s": 0.01143085000148858,
+    "by_category": {
+      "clarification": {
+        "n": 0
+      },
+      "repair_heavy": {
+        "n": 0
+      },
+      "retrieval_heavy": {
+        "n": 0
+      },
+      "generate": {
+        "n": 6,
+        "success": 1,
+        "syntax_ok": 1,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 219.70428333333334,
+        "p50_latency_s": 240.00119999999998
+      },
+      "edit": {
+        "n": 0
+      }
+    }
+  },
+  "runs": [
+    {
+      "id": "last_array_element",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 240.0028,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false
+      }
+    },
+    {
+      "id": "try_count_increment",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 239.9996,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false
+      }
+    },
+    {
+      "id": "return_username",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 118.2052,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.vars.userName",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.userName читается без явной инициализации в этом скрипте (нет присваивания и initVariables.userName)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.userName читается без явной инициализации в этом скрипте (нет присваивания и initVariables.userName)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false
+      }
+    },
+    {
+      "id": "init_variable",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 239.9978,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false
+      }
+    },
+    {
+      "id": "new_array",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 240.0085,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false
+      }
+    },
+    {
+      "id": "sum_two_init",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 240.0118,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false
+      }
+    },
+    {
+      "id": "edit_mode_sample",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 139.43105620000279,
+      "parsed": null
+    },
+    {
+      "id": "ambiguous_short",
+      "category": "clarification",
+      "expect_clarification": true,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.002943200001027435,
+      "parsed": null
+    },
+    {
+      "id": "english_status",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.0017239000007975847,
+      "parsed": null
+    },
+    {
+      "id": "conditional_ok_empty",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.006989199995587114,
+      "parsed": null
+    },
+    {
+      "id": "loop_sum_numbers",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.006757900002412498,
+      "parsed": null
+    },
+    {
+      "id": "concat_init_strings",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.00229350000154227,
+      "parsed": null
+    },
+    {
+      "id": "edit_return_login",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.024152899997716304,
+      "parsed": null
+    },
+    {
+      "id": "retrieval_dense_octapi",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.006923199995071627,
+      "parsed": null
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.00804739999875892,
+      "parsed": null
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.01481430000421824,
+      "parsed": null
+    },
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.0020252999966032803,
+      "parsed": null
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.0021520000009331852,
+      "parsed": null
+    }
+  ],
+  "baseline_report_path": "C:\\Users\\Мария\\OneDrive\\Desktop\\requirements (2)\\artifacts\\eval_live\\report.json"
+}

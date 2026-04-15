@@ -1,0 +1,692 @@
+{
+  "label": "freeze_candidate",
+  "cases_files": [
+    "C:\\Users\\Мария\\OneDrive\\Desktop\\requirements (2)\\tests\\test_cases.json"
+  ],
+  "type_filter": null,
+  "base_url": "http://127.0.0.1:8000",
+  "client_env": {
+    "RETRIEVAL_TOP_K": null,
+    "MODEL_NAME": null,
+    "FALLBACK_MODEL": null,
+    "RETRIEVAL_DEBUG": null,
+    "OLLAMA_BASE_URL": null,
+    "CONTEXT_SIZE": null,
+    "OLLAMA_NUM_PREDICT": null
+  },
+  "summary": {
+    "total_cases": 18,
+    "http_non_200": 0,
+    "responses_parsed": 18,
+    "by_status": {
+      "success": 16,
+      "needs_clarification": 1,
+      "error": 1
+    },
+    "clarification_count": 1,
+    "clarification_rate": 0.05555555555555555,
+    "expect_clarification_cases": 1,
+    "expect_clarification_hits": 1,
+    "expect_clarification_hit_rate": 1.0,
+    "generation_cases": 17,
+    "success_count": 16,
+    "success_rate": 0.9411764705882353,
+    "syntax_ok_count": 16,
+    "syntax_ok_rate": 0.9411764705882353,
+    "syntax_first_pass_count": 16,
+    "repair_attempted_count": 0,
+    "repair_success_count": 0,
+    "repair_success_rate": null,
+    "review_attempted_count": 0,
+    "review_helped_count": 0,
+    "review_used_rate": null,
+    "review_coverage_rate": 0.0,
+    "reflexion_fixed_case_ids": [],
+    "reflexion_no_help_case_ids": [],
+    "still_failing_case_ids": [
+      "loop_sum_numbers"
+    ],
+    "transport_failed_case_ids": [],
+    "iterations2_improved_case_ids": [],
+    "top5_weak_case_ids": [
+      "loop_sum_numbers"
+    ],
+    "fallback_used_count": 0,
+    "fallback_used_rate": 0.0,
+    "used_model_distribution": {
+      "qwen2.5-coder:7b": 16,
+      "unknown": 1
+    },
+    "avg_latency_s": 127.6502611111111,
+    "p50_latency_s": 113.7024,
+    "by_category": {
+      "edit": {
+        "n": 2,
+        "http_200_parsed": 2,
+        "transport_or_parse_fail": 0,
+        "success": 2,
+        "syntax_ok": 2,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 84.7711,
+        "p50_latency_s": 84.7711
+      },
+      "clarification": {
+        "n": 1,
+        "http_200_parsed": 1,
+        "transport_or_parse_fail": 0,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 1,
+        "avg_latency_s": 129.8711,
+        "p50_latency_s": 129.8711
+      },
+      "generate": {
+        "n": 10,
+        "http_200_parsed": 10,
+        "transport_or_parse_fail": 0,
+        "success": 9,
+        "syntax_ok": 9,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 139.42911,
+        "p50_latency_s": 113.7024
+      },
+      "retrieval_heavy": {
+        "n": 2,
+        "http_200_parsed": 2,
+        "transport_or_parse_fail": 0,
+        "success": 2,
+        "syntax_ok": 2,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 111.57715,
+        "p50_latency_s": 111.57715
+      },
+      "repair_heavy": {
+        "n": 3,
+        "http_200_parsed": 3,
+        "transport_or_parse_fail": 0,
+        "success": 3,
+        "syntax_ok": 3,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 126.94866666666667,
+        "p50_latency_s": 121.5196
+      }
+    }
+  },
+  "runs": [
+    {
+      "id": "last_array_element",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 112.5625,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.vars.emails[#wf.vars.emails]",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.emails читается без явной инициализации в этом скрипте (нет присваивания и initVariables.emails)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.emails читается без явной инициализации в этом скрипте (нет присваивания и initVariables.emails)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "try_count_increment",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 114.8423,
+      "parsed": {
+        "status": "success",
+        "code": "return (wf.vars.try_count_n or 0) + 1",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.try_count_n читается без явной инициализации в этом скрипте (нет присваивания и initVariables.try_count_n)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.try_count_n читается без явной инициализации в этом скрипте (нет присваивания и initVariables.try_count_n)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "return_username",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 67.7625,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.vars.userName",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.userName читается без явной инициализации в этом скрипте (нет присваивания и initVariables.userName)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.userName читается без явной инициализации в этом скрипте (нет присваивания и initVariables.userName)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "init_variable",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 86.3393,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.initVariables.orderId",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [],
+          "hints": [],
+          "errors": []
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "new_array",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 92.9178,
+      "parsed": {
+        "status": "success",
+        "code": "local a = _utils.array.new()\n_utils.array.markAsArray(a)\nreturn a",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [],
+          "hints": [],
+          "errors": []
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "sum_two_init",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 119.201,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.initVariables.a + wf.initVariables.b",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [],
+          "hints": [],
+          "errors": []
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "edit_mode_sample",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 89.2592,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.vars.items[#wf.vars.items]",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.items читается без явной инициализации в этом скрипте (нет присваивания и initVariables.items)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.items читается без явной инициализации в этом скрипте (нет присваивания и initVariables.items)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "ambiguous_short",
+      "category": "clarification",
+      "expect_clarification": true,
+      "http_status": 200,
+      "latency_s": 129.8711,
+      "parsed": {
+        "status": "needs_clarification",
+        "code": "",
+        "clarifying_question": "Ваш запрос касается выполнения какого-то задания или проекта? Пожалуйста, уточните, что именно вы хотите сделать хорошо, и я постараюсь помочь вам с конкретными рекомендациями или инструкциями.",
+        "message": "",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [],
+          "warnings": [],
+          "hints": [],
+          "errors": []
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "english_status",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 63.5884,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.vars.status",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.status читается без явной инициализации в этом скрипте (нет присваивания и initVariables.status)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.status читается без явной инициализации в этом скрипте (нет присваивания и initVariables.status)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "conditional_ok_empty",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 173.0276,
+      "parsed": {
+        "status": "success",
+        "code": "if (wf.vars.count or 0) > 0 then return \"ok\" else return \"empty\" end",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "loop_sum_numbers",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 439.9958,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ReadTimeout",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: ReadTimeout"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: ReadTimeout"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "concat_init_strings",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 124.0539,
+      "parsed": {
+        "status": "success",
+        "code": "return (wf.initVariables.prefix or \"\") .. (wf.initVariables.suffix or \"\")",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [],
+          "hints": [],
+          "errors": []
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "edit_return_login",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 80.283,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.vars.login",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.login читается без явной инициализации в этом скрипте (нет присваивания и initVariables.login)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.login читается без явной инициализации в этом скрипте (нет присваивания и initVariables.login)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "retrieval_dense_octapi",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 89.9998,
+      "parsed": {
+        "status": "success",
+        "code": "return wf.vars.items[#wf.vars.items]",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.items читается без явной инициализации в этом скрипте (нет присваивания и initVariables.items)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.items читается без явной инициализации в этом скрипте (нет присваивания и initVariables.items)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 133.1545,
+      "parsed": {
+        "status": "success",
+        "code": "return os.date(\"%Y-%m-%dT%H:%M:%SZ\", os.time())",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [],
+          "hints": [],
+          "errors": []
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 181.5802,
+      "parsed": {
+        "status": "success",
+        "code": "return ((wf.vars.a or 0) + (wf.vars.b or 0)) * math.max(1, tonumber(wf.vars.c) or 0)",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.c читается без явной инициализации в этом скрипте (нет присваивания и initVariables.c)",
+            "wf.vars.a читается без явной инициализации в этом скрипте (нет присваивания и initVariables.a)",
+            "wf.vars.b читается без явной инициализации в этом скрипте (нет присваивания и initVariables.b)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.c читается без явной инициализации в этом скрипте (нет присваивания и initVariables.c)",
+            "wf.vars.a читается без явной инициализации в этом скрипте (нет присваивания и initVariables.a)",
+            "wf.vars.b читается без явной инициализации в этом скрипте (нет присваивания и initVariables.b)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 121.5196,
+      "parsed": {
+        "status": "success",
+        "code": "if wf.vars.flag then\n    return \"yes\"\nelse\n    return \"no\"\nend",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.flag читается без явной инициализации в этом скрипте (нет присваивания и initVariables.flag)"
+          ],
+          "hints": [
+            "Несколько операторов return: убедитесь, что в Low-Code достигается нужная ветка"
+          ],
+          "errors": [
+            "wf.vars.flag читается без явной инициализации в этом скрипте (нет присваивания и initVariables.flag)",
+            "Несколько операторов return: убедитесь, что в Low-Code достигается нужная ветка"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 77.7462,
+      "parsed": {
+        "status": "success",
+        "code": "return { ok = true, n = wf.vars.count or 0 }",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": null
+      }
+    }
+  ],
+  "baseline_report_path": null
+}

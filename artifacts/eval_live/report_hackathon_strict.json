@@ -1,0 +1,304 @@
+{
+  "label": "hackathon_strict",
+  "cases_files": [
+    "C:\\Users\\Мария\\OneDrive\\Desktop\\node_modules\\tests\\test_cases.json"
+  ],
+  "type_filter": null,
+  "base_url": "http://127.0.0.1:8000",
+  "client_env": {
+    "RETRIEVAL_TOP_K": null,
+    "MODEL_NAME": null,
+    "FALLBACK_MODEL": null,
+    "RETRIEVAL_DEBUG": null,
+    "OLLAMA_BASE_URL": null,
+    "CONTEXT_SIZE": null,
+    "OLLAMA_NUM_PREDICT": null,
+    "OLLAMA_HTTP_TIMEOUT_S": null
+  },
+  "summary": {
+    "total_cases": 18,
+    "http_non_200": 18,
+    "responses_parsed": 0,
+    "by_status": {},
+    "clarification_count": 0,
+    "clarification_rate": 0.0,
+    "expect_clarification_cases": 1,
+    "expect_clarification_hits": 0,
+    "expect_clarification_hit_rate": 0.0,
+    "generation_cases": 0,
+    "success_count": 0,
+    "success_rate": 0.0,
+    "syntax_ok_count": 0,
+    "syntax_ok_rate": 0.0,
+    "syntax_first_pass_count": 0,
+    "repair_attempted_count": 0,
+    "repair_success_count": 0,
+    "repair_success_rate": null,
+    "review_attempted_count": 0,
+    "review_helped_count": 0,
+    "review_used_rate": null,
+    "review_coverage_rate": 0.0,
+    "reflexion_fixed_case_ids": [],
+    "reflexion_no_help_case_ids": [],
+    "still_failing_case_ids": [],
+    "transport_failed_case_ids": [
+      "last_array_element",
+      "try_count_increment",
+      "return_username",
+      "init_variable",
+      "new_array",
+      "sum_two_init",
+      "edit_mode_sample",
+      "ambiguous_short",
+      "english_status",
+      "conditional_ok_empty",
+      "loop_sum_numbers",
+      "concat_init_strings",
+      "edit_return_login",
+      "retrieval_dense_octapi",
+      "retrieval_iso_date",
+      "repair_nested_math",
+      "repair_multiline_if",
+      "repair_table_literal"
+    ],
+    "iterations2_improved_case_ids": [],
+    "top5_weak_case_ids": [],
+    "fallback_used_count": 0,
+    "fallback_used_rate": 0.0,
+    "used_model_distribution": {},
+    "avg_latency_s": 0.7065211666667892,
+    "p50_latency_s": 0.015609100002620835,
+    "by_category": {
+      "clarification": {
+        "n": 1,
+        "http_200_parsed": 0,
+        "transport_or_parse_fail": 1,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 0.012775799998053117,
+        "p50_latency_s": 0.012775799998053117
+      },
+      "repair_heavy": {
+        "n": 3,
+        "http_200_parsed": 0,
+        "transport_or_parse_fail": 3,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 0.016488200001428293,
+        "p50_latency_s": 0.016867100002855295
+      },
+      "retrieval_heavy": {
+        "n": 2,
+        "http_200_parsed": 0,
+        "transport_or_parse_fail": 2,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 0.01640275000136171,
+        "p50_latency_s": 0.01640275000136171
+      },
+      "generate": {
+        "n": 10,
+        "http_200_parsed": 0,
+        "transport_or_parse_fail": 10,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 1.2599127299996327,
+        "p50_latency_s": 0.01688915000158886
+      },
+      "edit": {
+        "n": 2,
+        "http_200_parsed": 0,
+        "transport_or_parse_fail": 2,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "review_attempted": 0,
+        "review_helped": 0,
+        "clarification": 0,
+        "avg_latency_s": 0.01160390000040934,
+        "p50_latency_s": 0.01160390000040934
+      }
+    }
+  },
+  "runs": [
+    {
+      "id": "last_array_element",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 12.451296800001728,
+      "parsed": null
+    },
+    {
+      "id": "try_count_increment",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.015267599999788217,
+      "parsed": null
+    },
+    {
+      "id": "return_username",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.021606700000120327,
+      "parsed": null
+    },
+    {
+      "id": "init_variable",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.018261000001075445,
+      "parsed": null
+    },
+    {
+      "id": "new_array",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.018565499998658197,
+      "parsed": null
+    },
+    {
+      "id": "sum_two_init",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.00769169999693986,
+      "parsed": null
+    },
+    {
+      "id": "edit_mode_sample",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.00803280000036466,
+      "parsed": null
+    },
+    {
+      "id": "ambiguous_short",
+      "category": "clarification",
+      "expect_clarification": true,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.012775799998053117,
+      "parsed": null
+    },
+    {
+      "id": "english_status",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.015226899999106536,
+      "parsed": null
+    },
+    {
+      "id": "conditional_ok_empty",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.015517300002102274,
+      "parsed": null
+    },
+    {
+      "id": "loop_sum_numbers",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.015185899999778485,
+      "parsed": null
+    },
+    {
+      "id": "concat_init_strings",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.02050789999702829,
+      "parsed": null
+    },
+    {
+      "id": "edit_return_login",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.01517500000045402,
+      "parsed": null
+    },
+    {
+      "id": "retrieval_dense_octapi",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.017525300001580035,
+      "parsed": null
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.015280200001143385,
+      "parsed": null
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.016867100002855295,
+      "parsed": null
+    },
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.016896599998290185,
+      "parsed": null
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "error": "Server disconnected without sending a response.",
+      "latency_s": 0.015700900003139395,
+      "parsed": null
+    }
+  ],
+  "baseline_report_path": null
+}

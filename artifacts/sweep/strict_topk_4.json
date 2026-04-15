@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "script": "run_representative_subset.py",
+    "note": "Параметры RETRIEVAL_TOP_K и OLLAMA_HTTP_TIMEOUT_S — на стороне сервера; сверяйте docker exec lua-gen-api printenv …"
+  },
+  "summary": {
+    "label": "strict_topk_4",
+    "base_url": "http://127.0.0.1:8000",
+    "cases_n": 8,
+    "transport_failed": 7,
+    "generation_cases": 1,
+    "success_count": 1,
+    "syntax_ok_count": 1,
+    "expect_clarification_hits": 0,
+    "expect_clarification_n": 1,
+    "avg_latency_s": 121.7192,
+    "p50_latency_s": 0.021,
+    "avg_gen1_prompt_chars": 1989
+  },
+  "runs": [
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 163.3128,
+      "parsed": {
+        "status": "success",
+        "code": "os.date(\"!%Y-%m-%dT%H:%M:%SZ\")",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [],
+          "hints": [],
+          "errors": []
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "gen1_prompt_chars": 1989
+        },
+        "retrieved_chunks": [
+          {
+            "rank": 1,
+            "id": "snippet-4",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 27.87949,
+            "keyword_hits": 4,
+            "text": "Для даты/времени в Lua избегайте os.date с префиксом '!'; при необходимости форматируйте вручную из os.time() и таблицы даты или используйте простые строковые шаблоны, согласованные с платформой.",
+            "text_preview": "Для даты/времени в Lua избегайте os.date с префиксом '!'; при необходимости форматируйте вручную из os.time() и таблицы даты или используйте простые строковые шаблоны, согласованные с платформой."
+          },
+          {
+            "rank": 2,
+            "id": "snippet-6",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 13.06429,
+            "keyword_hits": 2,
+            "text": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac).",
+            "text_preview": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac)."
+          },
+          {
+            "rank": 3,
+            "id": "snippet-0",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 9.84104,
+            "keyword_hits": 2,
+            "text": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName.",
+            "text_preview": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName."
+          },
+          {
+            "rank": 4,
+            "id": "manual-lowcode-script-output-1",
+            "source": "manual",
+            "kind": "constraint",
+            "score": 9.8309,
+            "keyword_hits": 2,
+            "text": "В low-code узлах часто ожидается явный return или последнее выражение как результат; для локальной проверки luac предпочтительно явный return.",
+            "text_preview": "В low-code узлах часто ожидается явный return или последнее выражение как результат; для локальной проверки luac предпочтительно явный return."
+          }
+        ],
+        "explanation": "Простой строковый шаблон для форматирования даты и времени в ISO 8601, используя `os.date`."
+      },
+      "error": null
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "latency_s": 720.0066,
+      "parsed": null,
+      "error": "ReadTimeout: timed out"
+    },
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "latency_s": 90.3642,
+      "parsed": null,
+      "error": "RemoteProtocolError: Server disconnected without sending a response."
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": null,
+      "latency_s": 0.0024,
+      "parsed": null,
+      "error": "RemoteProtocolError: Server disconnected without sending a response."
+    },
+    {
+      "id": "last_array_element",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "latency_s": 0.0136,
+      "parsed": null,
+      "error": "RemoteProtocolError: Server disconnected without sending a response."
+    },
+    {
+      "id": "return_username",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "latency_s": 0.0187,
+      "parsed": null,
+      "error": "RemoteProtocolError: Server disconnected without sending a response."
+    },
+    {
+      "id": "conditional_ok_empty",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": null,
+      "latency_s": 0.0233,
+      "parsed": null,
+      "error": "RemoteProtocolError: Server disconnected without sending a response."
+    },
+    {
+      "id": "ambiguous_short",
+      "category": "clarification",
+      "expect_clarification": true,
+      "http_status": null,
+      "latency_s": 0.012,
+      "parsed": null,
+      "error": "RemoteProtocolError: Server disconnected without sending a response."
+    }
+  ]
+}

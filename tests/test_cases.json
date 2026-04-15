@@ -1,0 +1,115 @@
+[
+  {
+    "id": "last_array_element",
+    "category": "generate",
+    "prompt": "Верни последний элемент массива wf.vars.emails, массив не пустой.",
+    "context": null
+  },
+  {
+    "id": "try_count_increment",
+    "category": "generate",
+    "prompt": "Увеличь счётчик wf.vars.try_count_n на единицу и верни новое значение.",
+    "context": null
+  },
+  {
+    "id": "return_username",
+    "category": "generate",
+    "prompt": "верни значение wf.vars.userName",
+    "context": null
+  },
+  {
+    "id": "init_variable",
+    "category": "generate",
+    "prompt": "Верни строку из начальной переменной orderId в wf.initVariables.",
+    "context": null
+  },
+  {
+    "id": "new_array",
+    "category": "generate",
+    "prompt": "Создай пустой массив через _utils.array.new(), пометь его как массив и верни.",
+    "context": null
+  },
+  {
+    "id": "sum_two_init",
+    "category": "generate",
+    "prompt": "Сложи два числа из wf.initVariables.a и wf.initVariables.b, верни сумму.",
+    "context": null
+  },
+  {
+    "id": "edit_mode_sample",
+    "category": "edit",
+    "prompt": "Исправь: нужно возвращать не первый, а последний элемент списка.",
+    "context": {
+      "previous_code": "return wf.vars.items[1]"
+    }
+  },
+  {
+    "id": "ambiguous_short",
+    "category": "clarification",
+    "prompt": "сделай хорошо",
+    "context": null,
+    "expect_clarification": true
+  },
+  {
+    "id": "english_status",
+    "category": "generate",
+    "prompt": "Write Lua for Octapi: return the value of wf.vars.status as the script output.",
+    "context": null
+  },
+  {
+    "id": "conditional_ok_empty",
+    "category": "generate",
+    "prompt": "Если wf.vars.count больше нуля, верни строку \"ok\", иначе верни \"empty\".",
+    "context": null
+  },
+  {
+    "id": "loop_sum_numbers",
+    "category": "generate",
+    "prompt": "В wf.vars.numbers массив чисел. Посчитай сумму элементов в цикле for и верни сумму.",
+    "context": null
+  },
+  {
+    "id": "concat_init_strings",
+    "category": "generate",
+    "prompt": "Склей без разделителя wf.initVariables.prefix и wf.initVariables.suffix, верни строку.",
+    "context": null
+  },
+  {
+    "id": "edit_return_login",
+    "category": "edit",
+    "prompt": "Измени скрипт: возвращай wf.vars.login вместо wf.vars.userName.",
+    "context": {
+      "previous_code": "return wf.vars.userName"
+    }
+  },
+  {
+    "id": "retrieval_dense_octapi",
+    "category": "retrieval_heavy",
+    "prompt": "Low-code Octapi: wf.vars, wf.initVariables, _utils.array.new, markAsArray, цикл for по массиву, return последний элемент, Lua 5.5, переменные схемы.",
+    "context": null
+  },
+  {
+    "id": "retrieval_iso_date",
+    "category": "retrieval_heavy",
+    "prompt": "Верни wf.vars.timestamp как строку ISO 8601 (минимальный Lua 5.5; os.date допустим, без os.execute). Только ```lua с одним return/выражением.",
+    "context": null
+  },
+  {
+    "id": "repair_nested_math",
+    "category": "repair_heavy",
+    "prompt": "Одной строкой Lua верни ((wf.vars.a or 0) + (wf.vars.b or 0)) * math.max(1, tonumber(wf.vars.c) or 0) без лишних переменных.",
+    "context": null
+  },
+  {
+    "id": "repair_multiline_if",
+    "category": "repair_heavy",
+    "prompt": "Напиши минимум три строки: если wf.vars.flag истинно то return \"yes\" иначе return \"no\" end. Используй then/else.",
+    "context": null
+  },
+  {
+    "id": "repair_table_literal",
+    "category": "repair_heavy",
+    "prompt": "Верни таблицу Lua {ok=true, n=(wf.vars.count or 0)} как единственное выражение (без лишнего текста вне выражения).",
+    "context": null
+  }
+]

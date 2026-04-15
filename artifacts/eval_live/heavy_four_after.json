@@ -1,0 +1,267 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "runs": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 138.3303,
+      "parsed": {
+        "status": "success",
+        "code": "if wf.vars.flag then return \"yes\" else return \"no\" end",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.flag читается без явной инициализации в этом скрипте (нет присваивания и initVariables.flag)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.flag читается без явной инициализации в этом скрипте (нет присваивания и initVariables.flag)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "num_predict": 288,
+          "ollama_read_timeout_s": 220.0,
+          "gen1_prompt_chars": 2087,
+          "stage": "complete",
+          "gen1_response_chars": 144,
+          "final_stage": "complete"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 195.8119,
+      "parsed": {
+        "status": "success",
+        "code": "return ((wf.vars.a or 0) + (wf.vars.b or 0)) * math.max(1, tonumber(wf.vars.c) or 0)",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.c читается без явной инициализации в этом скрипте (нет присваивания и initVariables.c)",
+            "wf.vars.a читается без явной инициализации в этом скрипте (нет присваивания и initVariables.a)",
+            "wf.vars.b читается без явной инициализации в этом скрипте (нет присваивания и initVariables.b)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.c читается без явной инициализации в этом скрипте (нет присваивания и initVariables.c)",
+            "wf.vars.a читается без явной инициализации в этом скрипте (нет присваивания и initVariables.a)",
+            "wf.vars.b читается без явной инициализации в этом скрипте (нет присваивания и initVariables.b)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "num_predict": 288,
+          "ollama_read_timeout_s": 220.0,
+          "gen1_prompt_chars": 2262,
+          "stage": "complete",
+          "gen1_response_chars": 200,
+          "final_stage": "complete"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 89.2203,
+      "parsed": {
+        "status": "success",
+        "code": "return {ok=true, n=(wf.vars.count or 0)}",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "num_predict": 288,
+          "ollama_read_timeout_s": 220.0,
+          "gen1_prompt_chars": 2215,
+          "stage": "complete",
+          "gen1_response_chars": 92,
+          "final_stage": "complete"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": 200,
+      "latency_s": 151.9486,
+      "parsed": {
+        "status": "success",
+        "code": "return (os.date(\"!%Y-%m-%dT%H:%M:%SZ\", wf.vars.timestamp) or \"Invalid timestamp\")",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.timestamp читается без явной инициализации в этом скрипте (нет присваивания и initVariables.timestamp)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.timestamp читается без явной инициализации в этом скрипте (нет присваивания и initVariables.timestamp)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "num_predict": 288,
+          "ollama_read_timeout_s": 220.0,
+          "gen1_prompt_chars": 2367,
+          "stage": "complete",
+          "gen1_response_chars": 186,
+          "final_stage": "complete"
+        }
+      },
+      "error": null
+    }
+  ],
+  "mini_reports": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 138.3303,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "num_predict": 288,
+        "ollama_read_timeout_s": 220.0,
+        "gen1_prompt_chars": 2087,
+        "stage": "complete",
+        "gen1_response_chars": 144,
+        "final_stage": "complete"
+      },
+      "message_preview": ""
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 195.8119,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "num_predict": 288,
+        "ollama_read_timeout_s": 220.0,
+        "gen1_prompt_chars": 2262,
+        "stage": "complete",
+        "gen1_response_chars": 200,
+        "final_stage": "complete"
+      },
+      "message_preview": ""
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 89.2203,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "num_predict": 288,
+        "ollama_read_timeout_s": 220.0,
+        "gen1_prompt_chars": 2215,
+        "stage": "complete",
+        "gen1_response_chars": 92,
+        "final_stage": "complete"
+      },
+      "message_preview": ""
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 151.9486,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "num_predict": 288,
+        "ollama_read_timeout_s": 220.0,
+        "gen1_prompt_chars": 2367,
+        "stage": "complete",
+        "gen1_response_chars": 186,
+        "final_stage": "complete"
+      },
+      "message_preview": ""
+    }
+  ]
+}

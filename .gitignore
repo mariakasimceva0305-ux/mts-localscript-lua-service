@@ -1,0 +1,41 @@
+# Локальные секреты и переопределения
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Tests / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Node (зависимости восстанавливаются через npm ci)
+node_modules/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Whoosh: индекс создаётся в контейнере / при запуске (volume в compose)
+api/data/whoosh_index/
+
+# Локальные артефакты прогонов (при необходимости закоммитьте конкретные отчёты)
+# artifacts/eval_live/*.json

@@ -1,0 +1,402 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "runs": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 149.592,
+      "parsed": {
+        "status": "success",
+        "code": "if wf.vars.flag then \n    return \"yes\"\nelse \n    return \"no\"\nend",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.flag читается без явной инициализации в этом скрипте (нет присваивания и initVariables.flag)"
+          ],
+          "hints": [
+            "Несколько операторов return: убедитесь, что в Low-Code достигается нужная ветка"
+          ],
+          "errors": [
+            "wf.vars.flag читается без явной инициализации в этом скрипте (нет присваивания и initVariables.flag)",
+            "Несколько операторов return: убедитесь, что в Low-Code достигается нужная ветка"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "gen1_prompt_chars": 1713
+        },
+        "retrieved_chunks": [
+          {
+            "rank": 1,
+            "id": "manual-example-conditional-1",
+            "source": "manual",
+            "kind": "example",
+            "score": 19.80979,
+            "keyword_hits": 1,
+            "text": "Пример ветвления: if (wf.vars.count or 0) > 0 then return \"ok\" else return \"empty\" end",
+            "text_preview": "Пример ветвления: if (wf.vars.count or 0) > 0 then return \"ok\" else return \"empty\" end"
+          },
+          {
+            "rank": 2,
+            "id": "snippet-0",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 9.84104,
+            "keyword_hits": 2,
+            "text": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName.",
+            "text_preview": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName."
+          },
+          {
+            "rank": 3,
+            "id": "manual-english-wf-1",
+            "source": "manual",
+            "kind": "example",
+            "score": 5.24219,
+            "keyword_hits": 1,
+            "text": "English-style task: return wf.vars.status — keep identifiers exactly as in the schema.",
+            "text_preview": "English-style task: return wf.vars.status — keep identifiers exactly as in the schema."
+          },
+          {
+            "rank": 4,
+            "id": "snippet-7",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 5.24219,
+            "keyword_hits": 1,
+            "text": "Возвращаемое значение сценария — последнее выражение или оператор return в конце.",
+            "text_preview": "Возвращаемое значение сценария — последнее выражение или оператор return в конце."
+          }
+        ],
+        "explanation": "Этот скрипт проверяет значение переменной `wf.vars.flag`. Если оно истинно, возвращает строку `\"yes\"`, иначе — строку `\"no\"`."
+      },
+      "error": null
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 156.9819,
+      "parsed": {
+        "status": "success",
+        "code": "return ((wf.vars.a or 0) + (wf.vars.b or 0)) * math.max(1, tonumber(wf.vars.c) or 0)",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.a читается без явной инициализации в этом скрипте (нет присваивания и initVariables.a)",
+            "wf.vars.b читается без явной инициализации в этом скрипте (нет присваивания и initVariables.b)",
+            "wf.vars.c читается без явной инициализации в этом скрипте (нет присваивания и initVariables.c)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.a читается без явной инициализации в этом скрипте (нет присваивания и initVariables.a)",
+            "wf.vars.b читается без явной инициализации в этом скрипте (нет присваивания и initVariables.b)",
+            "wf.vars.c читается без явной инициализации в этом скрипте (нет присваивания и initVariables.c)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "gen1_prompt_chars": 1888
+        },
+        "retrieved_chunks": [
+          {
+            "rank": 1,
+            "id": "snippet-0",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 9.84104,
+            "keyword_hits": 2,
+            "text": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName.",
+            "text_preview": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName."
+          },
+          {
+            "rank": 2,
+            "id": "snippet-6",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 9.07911,
+            "keyword_hits": 2,
+            "text": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac).",
+            "text_preview": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac)."
+          },
+          {
+            "rank": 3,
+            "id": "manual-concat-strings-1",
+            "source": "manual",
+            "kind": "example",
+            "score": 5.73306,
+            "keyword_hits": 1,
+            "text": "Склейка строк без разделителя: return (wf.initVariables.prefix or \"\") .. (wf.initVariables.suffix or \"\")",
+            "text_preview": "Склейка строк без разделителя: return (wf.initVariables.prefix or \"\") .. (wf.initVariables.suffix or \"\")"
+          },
+          {
+            "rank": 4,
+            "id": "manual-constraint-vars-1",
+            "source": "manual",
+            "kind": "constraint",
+            "score": 5.13399,
+            "keyword_hits": 1,
+            "text": "Доступ wf.vars.name предполагает поле таблицы; динамический ключ — wf.vars[key] или wf.vars[\"key\"]. Не смешивайте точечную и строковую нотацию без необходимости.",
+            "text_preview": "Доступ wf.vars.name предполагает поле таблицы; динамический ключ — wf.vars[key] или wf.vars[\"key\"]. Не смешивайте точечную и строковую нотацию без необходимости."
+          }
+        ],
+        "explanation": "Сумма значений `a` и `b`, умноженная на максимальное значение из 1 и числового значения `c`."
+      },
+      "error": null
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 77.1287,
+      "parsed": {
+        "status": "success",
+        "code": "return {ok=true, n=(wf.vars.count or 0)}",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "gen1_prompt_chars": 1841
+        },
+        "retrieved_chunks": [
+          {
+            "rank": 1,
+            "id": "snippet-6",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 14.05197,
+            "keyword_hits": 2,
+            "text": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac).",
+            "text_preview": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac)."
+          },
+          {
+            "rank": 2,
+            "id": "manual-example-conditional-1",
+            "source": "manual",
+            "kind": "example",
+            "score": 11.23216,
+            "keyword_hits": 1,
+            "text": "Пример ветвления: if (wf.vars.count or 0) > 0 then return \"ok\" else return \"empty\" end",
+            "text_preview": "Пример ветвления: if (wf.vars.count or 0) > 0 then return \"ok\" else return \"empty\" end"
+          },
+          {
+            "rank": 3,
+            "id": "snippet-0",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 9.84104,
+            "keyword_hits": 2,
+            "text": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName.",
+            "text_preview": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName."
+          },
+          {
+            "rank": 4,
+            "id": "manual-lowcode-script-output-1",
+            "source": "manual",
+            "kind": "constraint",
+            "score": 7.05402,
+            "keyword_hits": 1,
+            "text": "В low-code узлах часто ожидается явный return или последнее выражение как результат; для локальной проверки luac предпочтительно явный return.",
+            "text_preview": "В low-code узлах часто ожидается явный return или последнее выражение как результат; для локальной проверки luac предпочтительно явный return."
+          }
+        ],
+        "explanation": "Таблица возвращается как результат скрипта."
+      },
+      "error": null
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": 200,
+      "latency_s": 133.6357,
+      "parsed": {
+        "status": "success",
+        "code": "return os.date(\"!%Y-%m-%dT%H:%M:%SZ\", wf.vars.timestamp)",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.timestamp читается без явной инициализации в этом скрипте (нет присваивания и initVariables.timestamp)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.timestamp читается без явной инициализации в этом скрипте (нет присваивания и initVariables.timestamp)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "qwen2.5-coder:7b",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 4,
+          "gen1_prompt_chars": 1989
+        },
+        "retrieved_chunks": [
+          {
+            "rank": 1,
+            "id": "snippet-4",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 27.87949,
+            "keyword_hits": 4,
+            "text": "Для даты/времени в Lua избегайте os.date с префиксом '!'; при необходимости форматируйте вручную из os.time() и таблицы даты или используйте простые строковые шаблоны, согласованные с платформой.",
+            "text_preview": "Для даты/времени в Lua избегайте os.date с префиксом '!'; при необходимости форматируйте вручную из os.time() и таблицы даты или используйте простые строковые шаблоны, согласованные с платформой."
+          },
+          {
+            "rank": 2,
+            "id": "snippet-6",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 13.06429,
+            "keyword_hits": 2,
+            "text": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac).",
+            "text_preview": "Скрипт выполняется в среде MWS Octapi; последнее выражение может трактоваться как результат (предпочтительно явный return для совместимости с luac)."
+          },
+          {
+            "rank": 3,
+            "id": "snippet-0",
+            "source": "docs_snippets.json",
+            "kind": "snippet",
+            "score": 9.84104,
+            "keyword_hits": 2,
+            "text": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName.",
+            "text_preview": "Все переменные LowCode хранятся в wf.vars.<имя>. Для доступа используйте wf.vars.varName."
+          },
+          {
+            "rank": 4,
+            "id": "manual-lowcode-script-output-1",
+            "source": "manual",
+            "kind": "constraint",
+            "score": 9.8309,
+            "keyword_hits": 2,
+            "text": "В low-code узлах часто ожидается явный return или последнее выражение как результат; для локальной проверки luac предпочтительно явный return.",
+            "text_preview": "В low-code узлах часто ожидается явный return или последнее выражение как результат; для локальной проверки luac предпочтительно явный return."
+          }
+        ],
+        "explanation": "Форматирование даты по ISO 8601 с использованием префикса '!' для корректного отображения времени в UTC."
+      },
+      "error": null
+    }
+  ],
+  "mini_reports": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 149.592,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "gen1_prompt_chars": 1713
+      },
+      "message_preview": ""
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 156.9819,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "gen1_prompt_chars": 1888
+      },
+      "message_preview": ""
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 77.1287,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "gen1_prompt_chars": 1841
+      },
+      "message_preview": ""
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 133.6357,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "qwen2.5-coder:7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 4,
+        "gen1_prompt_chars": 1989
+      },
+      "message_preview": ""
+    }
+  ]
+}

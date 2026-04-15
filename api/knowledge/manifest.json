@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "description": "Реестр источников knowledge layer. Retriever загружает chunks.jsonl, затем chunks.official.jsonl (если есть), затем docs_snippets.json.",
+  "sources": [
+    {
+      "id": "docs_snippets",
+      "path": "docs_snippets.json",
+      "format": "legacy_snippets",
+      "role": "baseline Octapi/Low-Code подсказки (ручной baseline репозитория)"
+    },
+    {
+      "id": "corpus_manual",
+      "path": "knowledge/chunks.jsonl",
+      "format": "jsonl_chunks",
+      "role": "manual / examples / tests_summary — правки вручную или из eval",
+      "expected_source_tags": ["manual", "tests_summary"]
+    },
+    {
+      "id": "corpus_official",
+      "path": "knowledge/chunks.official.jsonl",
+      "format": "jsonl_chunks",
+      "role": "автогенерация из материалов организаторов (PDF + OpenAPI zip)",
+      "expected_source_tags": ["organizer_pdf", "organizer_openapi"],
+      "ingestion": "python scripts/ingest_official.py",
+      "raw_inputs": "knowledge/raw/organizers/*.pdf, *.zip"
+    }
+  ]
+}

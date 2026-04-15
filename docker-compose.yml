@@ -1,0 +1,98 @@
+# Основной сценарий (Docker Desktop): ollama → healthcheck → ollama-pull (pull моделей) → api.
+# Требуется Compose v2 с depends_on.condition: service_completed_successfully (Docker Desktop / plugin 2.20+).
+#
+# Имя проекта зафиксировано: volumes всегда localscript_ollama_data и т.д., даже если репозиторий
+# лежит в папке с другим имени или распакован из архива в новый каталог (иначе Docker создаёт
+# новые volumes и ollama-pull снова качает модели). Переопределение: -p или COMPOSE_PROJECT_NAME в .env.
+name: localscript
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    environment:
+      OLLAMA_KEEP_ALIVE: "24h"
+      OLLAMA_HOST: "0.0.0.0"
+      # Один параллельный запрос на модель (см. OLLAMA_NUM_PARALLEL в документации Ollama). Строгий профиль дублирует в docker-compose.hackathon.yml.
+      OLLAMA_NUM_PARALLEL: ${OLLAMA_NUM_PARALLEL:-1}
+    volumes:
+      - ollama_data:/root/.ollama
+    # GPU по умолчанию отключён (см. README). Иначе на WSL без NVIDIA: nvidia-container-cli ... no adapters
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 12
+      start_period: 35s
+
+  # Одноразовый pull в volume демона ollama (HTTP к сервису ollama). Имена моделей = MODEL_NAME / FALLBACK_MODEL.
+  # Скрипт монтируется с хоста: на Windows возможен CRLF — копируем в /tmp и чистим перед exec (mount :ro сохраняем).
+  ollama-pull:
+    image: ollama/ollama:latest
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      MODEL_NAME: ${MODEL_NAME:-qwen2.5-coder:7b}
+      FALLBACK_MODEL: ${FALLBACK_MODEL:-deepseek-coder:6.7b}
+    volumes:
+      - ./scripts/ollama_pull_models.sh:/ollama_pull_models.sh:ro
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - "set -e; cp /ollama_pull_models.sh /tmp/ollama_pull_models.sh; sed -i 's/\\r//g' /tmp/ollama_pull_models.sh; exec /bin/sh /tmp/ollama_pull_models.sh"
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    container_name: lua-gen-api
+    ports:
+      - "8000:8000"
+    environment:
+      # Явный путь к luac (Lua 5.5 из Dockerfile); надёжнее, чем только PATH на чужих стендах.
+      LUAC_BIN: ${LUAC_BIN:-/usr/local/bin/luac}
+      # В docker-mode всегда сервис ollama; не подставляйте http://127.0.0.1:11434 из хоста в .env для compose.
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://ollama:11434}
+      MODEL_NAME: ${MODEL_NAME:-qwen2.5-coder:7b}
+      FALLBACK_MODEL: ${FALLBACK_MODEL:-deepseek-coder:6.7b}
+      CONTEXT_SIZE: ${CONTEXT_SIZE:-4096}
+      # Короче ответ + меньше RAG-текста — стабильнее тяжёлые кейсы и reflexion (два вызова).
+      OLLAMA_NUM_PREDICT: ${OLLAMA_NUM_PREDICT:-288}
+      RETRIEVAL_TOP_K: ${RETRIEVAL_TOP_K:-4}
+      GENERATION_COMPACT_PLAN: ${GENERATION_COMPACT_PLAN:-1}
+      OLLAMA_HTTP_TIMEOUT_S: ${OLLAMA_HTTP_TIMEOUT_S:-240}
+      RETRIEVAL_DEBUG: ${RETRIEVAL_DEBUG:-}
+      WHOOSH_INDEX_DIR: ${WHOOSH_INDEX_DIR:-/app/data/whoosh_index}
+      DOCS_EXTRACT_DIR: ${DOCS_EXTRACT_DIR:-/app/knowledge/extracted_docs}
+      DOCS_ARCHIVE_PATH: ${DOCS_ARCHIVE_PATH:-/app/knowledge/raw/organizers/localscript-openapi.zip}
+    volumes:
+      - whoosh_data:/app/data
+      - docs_extract_data:/app/knowledge/extracted_docs
+    depends_on:
+      ollama:
+        condition: service_healthy
+      ollama-pull:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request,sys;r=urllib.request.urlopen('http://127.0.0.1:8000/ready',timeout=25);sys.exit(0 if r.status==200 else 1)",
+        ]
+      interval: 15s
+      timeout: 30s
+      retries: 6
+      start_period: 45s
+
+volumes:
+  ollama_data:
+  whoosh_data:
+  docs_extract_data:

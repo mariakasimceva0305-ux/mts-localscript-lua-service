@@ -1,0 +1,103 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "runs": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": null,
+      "latency_s": 2.0429,
+      "parsed": null,
+      "error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение"
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": null,
+      "latency_s": 2.0452,
+      "parsed": null,
+      "error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение"
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": null,
+      "latency_s": 2.0597,
+      "parsed": null,
+      "error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение"
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": null,
+      "latency_s": 2.0285,
+      "parsed": null,
+      "error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение"
+    }
+  ],
+  "mini_reports": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": null,
+      "transport_error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение",
+      "latency_s": 2.0429,
+      "response_received": false,
+      "status": null,
+      "iterations": null,
+      "used_model": null,
+      "reflexion_applied": null,
+      "first_pass_syntax_ok": null,
+      "syntax_ok": null,
+      "diagnostics": null,
+      "message_preview": ""
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": null,
+      "transport_error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение",
+      "latency_s": 2.0452,
+      "response_received": false,
+      "status": null,
+      "iterations": null,
+      "used_model": null,
+      "reflexion_applied": null,
+      "first_pass_syntax_ok": null,
+      "syntax_ok": null,
+      "diagnostics": null,
+      "message_preview": ""
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": null,
+      "transport_error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение",
+      "latency_s": 2.0597,
+      "response_received": false,
+      "status": null,
+      "iterations": null,
+      "used_model": null,
+      "reflexion_applied": null,
+      "first_pass_syntax_ok": null,
+      "syntax_ok": null,
+      "diagnostics": null,
+      "message_preview": ""
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": null,
+      "transport_error": "[WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение",
+      "latency_s": 2.0285,
+      "response_received": false,
+      "status": null,
+      "iterations": null,
+      "used_model": null,
+      "reflexion_applied": null,
+      "first_pass_syntax_ok": null,
+      "syntax_ok": null,
+      "diagnostics": null,
+      "message_preview": ""
+    }
+  ]
+}

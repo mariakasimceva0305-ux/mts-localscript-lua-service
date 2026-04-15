@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "label": "quick_topk_3",
+    "cases_n": 4,
+    "success_count": 0,
+    "clarification_count": 0,
+    "transport_failed": 4,
+    "syntax_ok_count": 0,
+    "avg_latency_s": 57.32,
+    "avg_gen1_prompt_chars": null
+  },
+  "runs": [
+    {
+      "id": "retrieval_iso_date",
+      "http_status": null,
+      "status": "transport_error",
+      "syntax_ok": false,
+      "latency_s": 229.241,
+      "error": "Server disconnected without sending a response."
+    },
+    {
+      "id": "init_variable",
+      "http_status": null,
+      "status": "transport_error",
+      "syntax_ok": false,
+      "latency_s": 0.021,
+      "error": "Server disconnected without sending a response."
+    },
+    {
+      "id": "edit_mode_sample",
+      "http_status": null,
+      "status": "transport_error",
+      "syntax_ok": false,
+      "latency_s": 0.003,
+      "error": "Server disconnected without sending a response."
+    },
+    {
+      "id": "ambiguous_short",
+      "http_status": null,
+      "status": "transport_error",
+      "syntax_ok": false,
+      "latency_s": 0.013,
+      "error": "Server disconnected without sending a response."
+    }
+  ]
+}

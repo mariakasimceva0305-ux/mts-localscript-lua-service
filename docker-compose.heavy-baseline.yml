@@ -1,0 +1,9 @@
+# Временный override: «как было» до latency-tune (для сравнения heavy-four).
+# docker compose -f docker-compose.yml -f docker-compose.heavy-baseline.yml up -d api
+services:
+  api:
+    environment:
+      OLLAMA_NUM_PREDICT: "320"
+      RETRIEVAL_TOP_K: "6"
+      GENERATION_COMPACT_PLAN: ""
+      OLLAMA_HTTP_TIMEOUT_S: "120"

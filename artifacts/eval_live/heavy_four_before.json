@@ -1,0 +1,269 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "runs": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 240.1558,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 6,
+          "num_predict": 320,
+          "ollama_read_timeout_s": 120.0,
+          "gen1_prompt_chars": 2334,
+          "stage": "before_ollama_gen1",
+          "failure_stage": "ollama_gen1",
+          "error_type": "ReadTimeout",
+          "error_summary": ""
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 239.9993,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 6,
+          "num_predict": 320,
+          "ollama_read_timeout_s": 120.0,
+          "gen1_prompt_chars": 2482,
+          "stage": "before_ollama_gen1",
+          "failure_stage": "ollama_gen1",
+          "error_type": "ReadTimeout",
+          "error_summary": ""
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "latency_s": 220.5089,
+      "parsed": {
+        "status": "success",
+        "code": "return {ok = true, n = (wf.vars.count or 0)}",
+        "clarifying_question": "",
+        "message": "",
+        "validation": {
+          "syntax_ok": true,
+          "hard_errors": [],
+          "warnings": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ],
+          "hints": [],
+          "errors": [
+            "wf.vars.count читается без явной инициализации в этом скрипте (нет присваивания и initVariables.count)"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": "deepseek-coder:6.7b",
+        "fallback_used": true,
+        "fallback_reason": "timeout",
+        "first_pass_syntax_ok": true,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 6,
+          "num_predict": 320,
+          "ollama_read_timeout_s": 120.0,
+          "gen1_prompt_chars": 2482,
+          "stage": "complete",
+          "gen1_response_chars": 56,
+          "final_stage": "complete"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": 200,
+      "latency_s": 240.0596,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: ",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: "
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: "
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null,
+        "first_pass_syntax_ok": null,
+        "reflexion_applied": false,
+        "diagnostics": {
+          "retrieval_chunks_count": 6,
+          "num_predict": 320,
+          "ollama_read_timeout_s": 120.0,
+          "gen1_prompt_chars": 2606,
+          "stage": "before_ollama_gen1",
+          "failure_stage": "ollama_gen1",
+          "error_type": "ReadTimeout",
+          "error_summary": ""
+        }
+      },
+      "error": null
+    }
+  ],
+  "mini_reports": [
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 240.1558,
+      "response_received": true,
+      "status": "error",
+      "iterations": 1,
+      "used_model": null,
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": null,
+      "syntax_ok": false,
+      "diagnostics": {
+        "retrieval_chunks_count": 6,
+        "num_predict": 320,
+        "ollama_read_timeout_s": 120.0,
+        "gen1_prompt_chars": 2334,
+        "stage": "before_ollama_gen1",
+        "failure_stage": "ollama_gen1",
+        "error_type": "ReadTimeout",
+        "error_summary": ""
+      },
+      "message_preview": "Ollama: "
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 239.9993,
+      "response_received": true,
+      "status": "error",
+      "iterations": 1,
+      "used_model": null,
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": null,
+      "syntax_ok": false,
+      "diagnostics": {
+        "retrieval_chunks_count": 6,
+        "num_predict": 320,
+        "ollama_read_timeout_s": 120.0,
+        "gen1_prompt_chars": 2482,
+        "stage": "before_ollama_gen1",
+        "failure_stage": "ollama_gen1",
+        "error_type": "ReadTimeout",
+        "error_summary": ""
+      },
+      "message_preview": "Ollama: "
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 220.5089,
+      "response_received": true,
+      "status": "success",
+      "iterations": 1,
+      "used_model": "deepseek-coder:6.7b",
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": true,
+      "syntax_ok": true,
+      "diagnostics": {
+        "retrieval_chunks_count": 6,
+        "num_predict": 320,
+        "ollama_read_timeout_s": 120.0,
+        "gen1_prompt_chars": 2482,
+        "stage": "complete",
+        "gen1_response_chars": 56,
+        "final_stage": "complete"
+      },
+      "message_preview": ""
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "http_status": 200,
+      "transport_error": null,
+      "latency_s": 240.0596,
+      "response_received": true,
+      "status": "error",
+      "iterations": 1,
+      "used_model": null,
+      "reflexion_applied": false,
+      "first_pass_syntax_ok": null,
+      "syntax_ok": false,
+      "diagnostics": {
+        "retrieval_chunks_count": 6,
+        "num_predict": 320,
+        "ollama_read_timeout_s": 120.0,
+        "gen1_prompt_chars": 2606,
+        "stage": "before_ollama_gen1",
+        "failure_stage": "ollama_gen1",
+        "error_type": "ReadTimeout",
+        "error_summary": ""
+      },
+      "message_preview": "Ollama: "
+    }
+  ]
+}

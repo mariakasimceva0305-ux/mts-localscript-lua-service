@@ -1,0 +1,607 @@
+{
+  "label": "live_uvicorn_no_ollama",
+  "cases_files": [
+    "C:\\Users\\Мария\\OneDrive\\Desktop\\requirements (2)\\tests\\test_cases.json"
+  ],
+  "type_filter": null,
+  "base_url": "http://127.0.0.1:8000",
+  "client_env": {
+    "RETRIEVAL_TOP_K": null,
+    "MODEL_NAME": null,
+    "FALLBACK_MODEL": null,
+    "RETRIEVAL_DEBUG": null,
+    "OLLAMA_BASE_URL": null,
+    "CONTEXT_SIZE": null,
+    "OLLAMA_NUM_PREDICT": null
+  },
+  "summary": {
+    "total_cases": 18,
+    "http_non_200": 0,
+    "responses_parsed": 18,
+    "by_status": {
+      "error": 18
+    },
+    "clarification_count": 0,
+    "clarification_rate": 0.0,
+    "expect_clarification_cases": 1,
+    "expect_clarification_hits": 0,
+    "expect_clarification_hit_rate": 0.0,
+    "generation_cases": 18,
+    "success_count": 0,
+    "success_rate": 0.0,
+    "syntax_ok_count": 0,
+    "syntax_ok_rate": 0.0,
+    "syntax_first_pass_count": 0,
+    "repair_attempted_count": 0,
+    "repair_success_count": 0,
+    "repair_success_rate": null,
+    "fallback_used_count": 0,
+    "fallback_used_rate": 0.0,
+    "used_model_distribution": {
+      "unknown": 18
+    },
+    "avg_latency_s": 0.5778833333333333,
+    "p50_latency_s": 0.5219,
+    "by_category": {
+      "clarification": {
+        "n": 1,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "clarification": 0
+      },
+      "retrieval_heavy": {
+        "n": 2,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "clarification": 0
+      },
+      "edit": {
+        "n": 2,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "clarification": 0
+      },
+      "repair_heavy": {
+        "n": 3,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "clarification": 0
+      },
+      "generate": {
+        "n": 10,
+        "success": 0,
+        "syntax_ok": 0,
+        "repair_attempts": 0,
+        "clarification": 0
+      }
+    }
+  },
+  "runs": [
+    {
+      "id": "last_array_element",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.8035,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "try_count_increment",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.6645,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "return_username",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4496,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "init_variable",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4674,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "new_array",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4948,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "sum_two_init",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.5124,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "edit_mode_sample",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4339,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "ambiguous_short",
+      "category": "clarification",
+      "expect_clarification": true,
+      "http_status": 200,
+      "latency_s": 0.6108,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama недоступен: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama недоступен: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama недоступен: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "english_status",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4585,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "conditional_ok_empty",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.5314,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "loop_sum_numbers",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4785,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "concat_init_strings",
+      "category": "generate",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.612,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "edit_return_login",
+      "category": "edit",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4688,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "retrieval_dense_octapi",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.4785,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "retrieval_iso_date",
+      "category": "retrieval_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.5364,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "repair_nested_math",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.5415,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "repair_multiline_if",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 0.5409,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    },
+    {
+      "id": "repair_table_literal",
+      "category": "repair_heavy",
+      "expect_clarification": false,
+      "http_status": 200,
+      "latency_s": 1.3185,
+      "parsed": {
+        "status": "error",
+        "code": "",
+        "clarifying_question": "",
+        "message": "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+        "validation": {
+          "syntax_ok": false,
+          "hard_errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ],
+          "warnings": [],
+          "hints": [],
+          "errors": [
+            "Ollama: Server error '503 Service Unavailable' for url 'http://ollama:11434/api/generate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+          ]
+        },
+        "iterations": 1,
+        "retrieval_debug": null,
+        "used_model": null,
+        "fallback_used": null,
+        "fallback_reason": null
+      }
+    }
+  ]
+}

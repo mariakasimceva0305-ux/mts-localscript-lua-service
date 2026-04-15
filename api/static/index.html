@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="ru" class="theme-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalScript · Lua для MWS Octapi</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="splash-body-lock theme-dark">
+    <div
+      id="splashGate"
+      class="splash-gate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="splashTitle"
+      aria-describedby="splashDesc"
+    >
+      <div class="splash-gate-bg" aria-hidden="true"></div>
+      <div class="splash-gate-noise" aria-hidden="true"></div>
+      <div class="splash-gate-inner">
+        <header class="splash-brand">
+          <span class="mts-logo mts-logo--splash" aria-hidden="true">МТС</span>
+          <div class="splash-brand-text">
+            <h1 id="splashTitle" class="splash-title">LocalScript</h1>
+            <p id="splashDesc" class="splash-tagline">Lua для MWS Octapi · локальный контур</p>
+          </div>
+        </header>
+
+        <div class="splash-hero">
+          <div class="splash-mascot-ring" aria-hidden="true"></div>
+          <img
+            class="splash-mascot"
+            src="/media/cat_runner.png"
+            width="220"
+            height="220"
+            alt=""
+            decoding="async"
+          />
+          <p class="splash-lead">Инженерный ассистент для сценариев Octapi: генерация, правка и проверка Lua в контуре организации.</p>
+        </div>
+
+        <div class="splash-auth" aria-label="Учётная запись — в разработке">
+          <div class="splash-auth-item">
+            <button type="button" class="splash-fake-btn" disabled aria-disabled="true" title="Появится в следующих версиях">Вход</button>
+            <span class="splash-soon-badge">скоро</span>
+          </div>
+          <div class="splash-auth-item">
+            <button type="button" class="splash-fake-btn" disabled aria-disabled="true" title="Появится в следующих версиях">Регистрация</button>
+            <span class="splash-soon-badge">скоро</span>
+          </div>
+        </div>
+
+        <div class="splash-cta">
+          <button type="button" id="splashContinueBtn" class="splash-continue-btn" autofocus>
+            Продолжить без входа
+          </button>
+          <p class="splash-cta-note">Рабочий интерфейс и API доступны в режиме гостя; настройки хранятся в браузере.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="appMain" hidden>
+    <div class="app-shell">
+      <header class="topbar topbar--minimal" aria-label="Сервис">
+        <div class="topbar-main topbar-main--minimal">
+          <div class="brand-block">
+            <span class="mts-logo" aria-hidden="true">МТС</span>
+            <div class="brand-text">
+              <h1>LocalScript</h1>
+              <p class="brand-tagline">
+                <strong>Lua</strong> для <strong>MWS Octapi</strong> · локальный контур
+              </p>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <div class="header-profile-bar" role="group" aria-label="Профиль">
+              <button type="button" id="profileGuestBtn" class="segment-btn segment-btn--header active" data-profile="guest" title="Гость">
+                Гость
+              </button>
+              <button type="button" id="profileLocalBtn" class="segment-btn segment-btn--header" data-profile="local" title="Локально в браузере">
+                Локальный
+              </button>
+              <span id="profileLabel" class="profile-status-inline profile-status-inline--header muted"></span>
+            </div>
+            <button
+              type="button"
+              id="platformOverflowBtn"
+              class="icon-overflow-btn"
+              aria-expanded="false"
+              aria-controls="platformMenuDialog"
+              aria-label="Платформа: настройки, анимация, интерфейс"
+              title="Платформа — настройки"
+            >
+              <span class="visually-hidden">Платформа — настройки</span>
+              <span class="icon-kebab" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+              <span class="icon-kebab-line" aria-hidden="true"></span>
+            </button>
+            <div class="status-cluster" role="status" aria-live="polite">
+              <span id="healthBadge" class="status-pill status-pill--pending">API: …</span>
+              <span id="readyBadge" class="status-pill status-pill--pending">Модели: …</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="serviceAlert" class="service-alert" role="status" aria-live="polite" hidden></div>
+
+      <section class="chat-task-rail" aria-labelledby="chat-task-rail-title">
+        <h2 id="chat-task-rail-title" class="visually-hidden">Настройки задачи и чата</h2>
+        <div class="chat-task-rail-inner">
+          <div class="chat-task-group">
+            <span class="chat-task-label">Сценарий</span>
+            <div class="mode-toolbar mode-toolbar--compact" role="tablist" aria-label="Режим работы">
+              <button type="button" class="mode-btn active" data-work-mode="new" id="modeNewBtn">Новый скрипт</button>
+              <button type="button" class="mode-btn" data-work-mode="edit" id="modeEditBtn">Правка</button>
+              <button type="button" class="mode-btn" data-work-mode="validate" id="modeValidateBtn">Проверка</button>
+            </div>
+          </div>
+          <div class="chat-task-group">
+            <span class="chat-task-label">Ответ API</span>
+            <div class="depth-toolbar depth-toolbar--compact" role="group" aria-label="Детализация ответа">
+              <button type="button" class="segment-btn active" id="depthFastBtn" data-depth="fast">Быстро</button>
+              <button type="button" class="segment-btn" id="depthDeepBtn" data-depth="deep">Глубоко</button>
+            </div>
+          </div>
+          <div class="chat-task-group chat-task-group--discuss">
+            <span class="chat-task-label">Чат</span>
+            <button type="button" class="segment-btn" id="modeDiscussBtn" aria-pressed="false" title="Диалог">
+              Диалог
+            </button>
+          </div>
+        </div>
+        <p id="modeHint" class="mode-hint mode-hint--rail muted"></p>
+      </section>
+
+      <section class="product-block product-block--workspace" aria-labelledby="block-work-title">
+        <div id="catRunnerRail" class="cat-runner-rail cat-runner-rail--in-workspace" aria-hidden="true">
+          <div class="cat-runner-window">
+            <div class="cat-runner-marquee">
+              <div class="cat-runner-trio" id="catRunnerTrio">
+                <span class="cat-runner-sprite-wrap">
+                  <video
+                    id="catRunnerVideo"
+                    class="cat-runner-video"
+                    muted
+                    playsinline
+                    loop
+                    autoplay
+                    preload="auto"
+                  ></video>
+                  <img id="catRunnerSprite" class="cat-runner-sprite" alt="" decoding="async" hidden />
+                </span>
+                <span class="cat-runner-sprite-wrap" aria-hidden="true">
+                  <img id="catRunnerSprite2" class="cat-runner-sprite" alt="" decoding="async" hidden />
+                </span>
+                <span class="cat-runner-sprite-wrap" aria-hidden="true">
+                  <img id="catRunnerSprite3" class="cat-runner-sprite" alt="" decoding="async" hidden />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-block-head product-block-head--workspace">
+          <div>
+            <h2 id="block-work-title" class="product-block-h">Работа с кодом</h2>
+            <p class="product-block-lead muted">Чат и редактор.</p>
+          </div>
+          <div class="layout-toggles" role="group" aria-label="Вид панелей">
+            <button type="button" class="ghost-btn ghost-btn--compact layout-btn active" id="layoutBothBtn" data-layout="both" title="Чат и редактор">Оба</button>
+            <button type="button" class="ghost-btn ghost-btn--compact layout-btn" id="layoutChatBtn" data-layout="chat" title="Только чат и ввод">Только чат</button>
+            <button type="button" class="ghost-btn ghost-btn--compact layout-btn" id="layoutEditorBtn" data-layout="editor" title="Только редактор">Только код</button>
+          </div>
+        </div>
+
+        <div class="workspace-split" id="workspaceSplit">
+          <div class="split-pane split-pane--chat" id="splitChatPane">
+            <div class="split-pane-inner">
+              <details class="demo-strip demo-strip--collapsible">
+                <summary class="demo-strip-summary">
+                  <span class="demo-strip-caret" aria-hidden="true"></span>
+                  <span id="demo-strip-title" class="demo-strip-title">Примеры</span>
+                </summary>
+                <div class="demo-cards" role="group" aria-label="Быстрые сценарии">
+                  <button type="button" class="demo-card" data-demo="simple">
+                    <span class="demo-card-title">Простой скрипт</span>
+                    <span class="demo-card-desc"><code>wf.vars</code></span>
+                  </button>
+                  <button type="button" class="demo-card" data-demo="edit">
+                    <span class="demo-card-title">Правка</span>
+                    <span class="demo-card-desc"><code>/edit</code></span>
+                  </button>
+                  <button type="button" class="demo-card" data-demo="clarify">
+                    <span class="demo-card-title">Уточнение</span>
+                    <span class="demo-card-desc"><code>needs_clarification</code></span>
+                  </button>
+                  <button type="button" class="demo-card" data-demo="complex">
+                    <span class="demo-card-title">Сложный</span>
+                    <span class="demo-card-desc">Octapi</span>
+                  </button>
+                </div>
+              </details>
+
+              <p id="chatLogRegionLabel" class="field-label chat-log-region-label">Диалоговое окно</p>
+              <div id="chatLog" class="chat-log" role="log" aria-labelledby="chatLogRegionLabel"></div>
+
+              <div class="chat-compose">
+                <label class="field-label" for="promptInput">Запрос</label>
+                <textarea id="promptInput" rows="4" placeholder="Текст запроса"></textarea>
+                <div class="chat-compose-actions">
+                  <span id="hotkeyHint" class="hint">Enter — отправить · Shift+Enter — новая строка</span>
+                  <button type="button" id="insertExampleBtn" class="ghost-btn ghost-btn--tiny">Пример задачи</button>
+                </div>
+                <div class="primary-action-row">
+                  <button type="button" id="sendBtn" class="btn-primary btn-primary--accent btn-primary--large">Отправить</button>
+                </div>
+                <div class="secondary-actions secondary-actions--chat">
+                  <span class="secondary-actions-label">Чат</span>
+                  <div class="secondary-actions-btns">
+                    <button type="button" id="fixCodeBtn" class="ghost-btn ghost-btn--small">Правка в окне…</button>
+                    <button type="button" id="checkCodeBtn" class="ghost-btn ghost-btn--small">Проверить код</button>
+                    <button type="button" id="clearAllBtn" class="ghost-btn ghost-btn--small ghost-btn--danger-outline">Сбросить чат</button>
+                  </div>
+                </div>
+              </div>
+
+              <details class="side-panel" id="notesPanel">
+                <summary class="side-panel-summary">
+                  <span class="side-panel-caret" aria-hidden="true"></span>
+                  Заметки, история, черновики
+                </summary>
+                <p id="notesEmptyHint" class="empty-hint">Профиль «Локальный» и сохранение истории — в шапке и в «Платформа» (⋯).</p>
+                <label class="field-label" for="notesArea">Заметки</label>
+                <textarea id="notesArea" class="notes-area" rows="4" placeholder="Заметки"></textarea>
+                <div class="history-block">
+                  <h3 class="history-title">Последние задачи</h3>
+                  <ul id="historyList" class="history-list"></ul>
+                </div>
+                <div class="history-block">
+                  <h3 class="history-title">Черновики</h3>
+                  <ul id="draftsList" class="history-list"></ul>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div
+            class="split-handle"
+            id="splitHandle"
+            role="separator"
+            aria-orientation="vertical"
+            aria-label="Изменить ширину панелей"
+            tabindex="0"
+          ></div>
+
+          <div class="split-pane split-pane--editor" id="splitEditorPane">
+            <div class="split-pane-inner split-pane-inner--editor">
+              <div class="editor-panel-head">
+                <div>
+                  <h3 class="editor-heading">Редактор Lua</h3>
+                  <p class="muted editor-sub">Файл <code>.lua</code></p>
+                  <div id="editorSourcesStrip" class="editor-sources-strip" hidden>
+                    <span class="editor-sources-label">Источники по ответу</span>
+                    <div id="editorSourcesChips" class="editor-sources-chips" role="list"></div>
+                  </div>
+                </div>
+                <div class="editor-head-status">
+                  <span id="editorArtifactStatus" class="editor-artifact-status" hidden></span>
+                  <span id="validationDot" class="status-dot neutral" title="Проверка"></span>
+                </div>
+              </div>
+              <div class="editor-chrome" id="editorChrome">
+                <div class="editor-chrome-bar editor-chrome-bar--grouped" role="toolbar" aria-label="Действия с кодом">
+                  <span class="chrome-group-label">Код</span>
+                  <button id="editorCopyBtn" type="button" class="ghost-btn ghost-btn--compact">Копировать</button>
+                  <button id="editorUploadBtn" type="button" class="ghost-btn ghost-btn--compact">Импорт</button>
+                  <button id="editorDownloadBtn" type="button" class="ghost-btn ghost-btn--compact">Экспорт</button>
+                  <span class="chrome-sep" aria-hidden="true"></span>
+                  <button id="editorDraftBtn" type="button" class="ghost-btn ghost-btn--compact">В черновик</button>
+                  <button id="editorClearBtn" type="button" class="ghost-btn ghost-btn--compact">Очистить</button>
+                </div>
+                <input id="luaFileInput" type="file" accept=".lua,text/plain" hidden />
+                <div class="editor-wrap" id="editorWrap">
+                  <div id="editorEmptyState" class="editor-empty-state" aria-hidden="false">
+                    <p class="editor-empty-title">Нет кода</p>
+                    <p class="editor-empty-text">Сгенерируйте, импортируйте <code>.lua</code> или выберите пример выше.</p>
+                  </div>
+                  <div id="editorRoot" class="editor-root"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel status-panel status-panel--product" aria-label="Разбор результата">
+        <div class="product-block-head">
+          <h2 class="product-block-h product-block-h--minor dialog-title-mts">Результат</h2>
+          <p class="status-panel-intro muted">Сводка и вкладки.</p>
+        </div>
+
+        <div id="resultGlance" class="result-glance result-glance--product" aria-label="Краткий итог">
+          <div class="result-glance-item">
+            <span class="result-glance-k">Статус</span>
+            <span id="glanceStatus" class="result-glance-v">—</span>
+          </div>
+          <div class="result-glance-item">
+            <span class="result-glance-k">Модель</span>
+            <span id="glanceModel" class="result-glance-v">—</span>
+          </div>
+          <div class="result-glance-item">
+            <span class="result-glance-k">Проходы LLM</span>
+            <span id="glanceIterations" class="result-glance-v">—</span>
+          </div>
+          <div class="result-glance-item">
+            <span class="result-glance-k">Второй проход</span>
+            <span id="glanceReflexion" class="result-glance-v">—</span>
+          </div>
+          <div class="result-glance-item">
+            <span class="result-glance-k">Fallback</span>
+            <span id="glanceFallback" class="result-glance-v">—</span>
+          </div>
+          <div class="result-glance-item">
+            <span class="result-glance-k">Чанки знаний</span>
+            <span id="glanceChunks" class="result-glance-v">—</span>
+          </div>
+          <div class="result-glance-item result-glance-item--wide">
+            <span class="result-glance-k">Проверка</span>
+            <span id="glanceValidation" class="result-glance-v">—</span>
+          </div>
+        </div>
+
+        <details id="resultMetaAccordion" class="result-meta-accordion">
+          <summary class="result-meta-accordion-summary">Диагностика запроса</summary>
+          <div class="result-meta-accordion-body">
+            <p class="muted result-meta-lead">
+              Расширенные поля ответа API (размеры промпта, этапы, таймауты и т.п.). Заполняется только в режиме «Глубоко». Краткая сводка — в полосе выше.
+            </p>
+            <div id="diagnosticsPanel" class="diagnostics-panel" hidden>
+              <dl id="diagnosticsDl" class="diagnostics-dl"></dl>
+            </div>
+            <p id="diagnosticsEmptyHint" class="muted result-meta-empty">Для этого блока включите «Глубоко» и выполните запрос к модели.</p>
+          </div>
+        </details>
+
+        <div class="result-tabs" role="tablist" aria-label="Разделы разбора">
+          <button type="button" class="result-tab active" role="tab" aria-selected="true" data-result-tab="check" id="tabBtnCheck">Проверка</button>
+          <button type="button" class="result-tab" role="tab" aria-selected="false" data-result-tab="chunks" id="tabBtnChunks">Знания</button>
+          <button type="button" class="result-tab" role="tab" aria-selected="false" data-result-tab="explain" id="tabBtnExplain">Пояснение</button>
+          <button type="button" class="result-tab" role="tab" aria-selected="false" data-result-tab="help" id="tabBtnHelp">Справка</button>
+        </div>
+
+        <div class="result-tab-panels">
+          <div id="tab-panel-check" class="result-tab-panel" role="tabpanel" aria-labelledby="tabBtnCheck">
+            <div id="clarificationCallout" class="clarification-callout" hidden>
+              <div class="clarification-callout-head">
+                <strong>Нужно уточнение</strong>
+                <span class="clarification-badge">needs_clarification</span>
+              </div>
+              <p class="muted clarification-why">
+                Запрос слишком общий — сервис запрашивает уточнение вместо угадывания кода.
+              </p>
+              <p id="clarificationCalloutText" class="clarification-callout-text"></p>
+              <p class="muted clarification-hint-chips-label">Подсказки:</p>
+              <div class="clarification-chips" id="clarificationChips"></div>
+              <label class="field-label" for="clarificationReply">Ваш ответ</label>
+              <textarea id="clarificationReply" class="clarification-reply" rows="2" placeholder="Уточните задачу…"></textarea>
+              <div class="clarification-actions">
+                <button type="button" id="clarificationContinueBtn" class="btn-primary">Отправить уточнение</button>
+              </div>
+            </div>
+            <div id="validationSuccessBanner" class="success-banner" hidden>
+              <span class="success-banner-icon" aria-hidden="true">&#10003;</span>
+              <div>
+                <strong>Проверка пройдена</strong>
+                <p class="success-banner-text">Критичных ошибок нет.</p>
+              </div>
+            </div>
+            <div id="validationSummary" class="validation-pill validation-pill--neutral">Ожидание действий</div>
+            <div class="validation-groups">
+              <div class="val-group val-group--hard">
+                <h4 class="val-group-title">Ошибки <span class="val-badge">критичные</span></h4>
+                <ul id="validationHardList" class="val-list"></ul>
+                <p id="validationHardEmpty" class="val-empty muted">Нет</p>
+              </div>
+              <div class="val-group val-group--warn">
+                <h4 class="val-group-title">Предупреждения</h4>
+                <ul id="validationWarnList" class="val-list"></ul>
+                <p id="validationWarnEmpty" class="val-empty muted">Нет</p>
+              </div>
+              <div class="val-group val-group--hint">
+                <h4 class="val-group-title">Подсказки</h4>
+                <ul id="validationHintList" class="val-list"></ul>
+                <p id="validationHintEmpty" class="val-empty muted">Нет</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-panel-chunks" class="result-tab-panel" role="tabpanel" aria-labelledby="tabBtnChunks" hidden>
+            <p id="chunksHint" class="chunks-hint muted"></p>
+            <div id="retrievedChunks" class="chunk-cards" role="list"></div>
+          </div>
+
+          <div id="tab-panel-explain" class="result-tab-panel" role="tabpanel" aria-labelledby="tabBtnExplain" hidden>
+            <div id="explanationCard" class="explanation-card explanation-card--tab">
+              <h4 class="explanation-card-title dialog-title-mts">Пояснение модели</h4>
+              <p id="validationExplanation" class="explanation-card-body muted">Пояснение появится после генерации или правки.</p>
+            </div>
+          </div>
+
+          <div id="tab-panel-help" class="result-tab-panel result-tab-panel--help" role="tabpanel" aria-labelledby="tabBtnHelp" hidden>
+            <div class="help-compact">
+              <h4 class="help-h dialog-title-mts">Справка</h4>
+              <dl class="help-dl">
+                <dt>Режимы</dt>
+                <dd>
+                  Полоса под шапкой: новый скрипт, правка, проверка. «Быстро» / «Глубоко» — в «Глубоко» к
+                  <code>/generate</code> и <code>/edit</code> добавляется <code>include_diagnostics: true</code> (расширенный JSON и блок диагностики под сводкой).
+                </dd>
+                <dt>Профиль и настройки</dt>
+                <dd>«Гость» / «Локальный» — в шапке. «Платформа» (⋯) — тема, масштаб, шрифт кода, история, параметры полоски над чатом.</dd>
+                <dt>Octapi в коде</dt>
+                <dd>Доступ к полям схемы: <code>wf.vars.&lt;имя&gt;</code>. Стартовые данные сценария — <code>wf.initVariables</code> (см. документацию MWS Octapi).</dd>
+                <dt>Запросы к API</dt>
+                <dd>
+                  <strong>Новый скрипт:</strong> текст из чата, код редактора не отправляется —
+                  <code>POST /generate</code>. <strong>Правка:</strong> инструкция + код редактора —
+                  <code>POST /edit</code>. <strong>Проверка:</strong> только код редактора —
+                  <code>POST /validate</code>.
+                </dd>
+                <dt>Результат</dt>
+                <dd>Блок «Результат»: сводка, вкладка проверки, чанки знаний, пояснение модели.</dd>
+                <dt>Валидация Lua</dt>
+                <dd>Жёсткие ошибки не дают завершить проверку успехом; область редактора кратко подсвечивается.</dd>
+                <dt>Контур</dt>
+                <dd>Инференс через Ollama в контуре организации; в этом решении не вызываются внешние облачные LLM API.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <p class="status-panel-footer">
+          <button type="button" class="ghost-btn ghost-btn--compact" id="helpFooterBtn">Справка</button>
+        </p>
+      </section>
+    </div>
+
+    <dialog id="platformMenuDialog" class="platform-menu-dialog">
+      <div class="modal-card platform-menu-card">
+        <div class="platform-menu-head">
+          <h3 id="platformMenuTitle" class="dialog-title-mts">Платформа</h3>
+          <button type="button" id="platformMenuCloseBtn" class="ghost-btn">Закрыть</button>
+        </div>
+        <div class="setup-grid setup-grid--in-dialog setup-grid--platform-wide">
+          <ul class="trust-list trust-list--dry" aria-label="Контур">
+            <li>API и Ollama в контуре организации</li>
+            <li>Внешние облачные LLM не используются</li>
+            <li>Проверка: luac и правила Octapi</li>
+            <li>Сводка ответа: полоса над вкладками; расширенная диагностика — раскрывающийся блок ниже</li>
+          </ul>
+          <div class="setup-controls">
+            <fieldset class="cat-runner-settings">
+              <legend class="cat-runner-legend">Анимация в рабочей области</legend>
+              <label class="settings-field settings-field--checkbox">
+                <input type="checkbox" id="catRunnerEnabled" checked />
+                <span>Включить</span>
+              </label>
+              <label class="settings-field">
+                <span class="settings-label">Высота, px</span>
+                <input type="number" id="catRunnerHeight" min="36" max="160" value="80" />
+              </label>
+              <label class="settings-field">
+                <span class="settings-label">URL (PNG, GIF, WebP или MP4)</span>
+                <input type="text" id="catRunnerUrl" class="cat-url-input" placeholder="/media/cat_runner.png" />
+              </label>
+            </fieldset>
+            <div class="platform-interface-block">
+              <h4 class="platform-section-title dialog-title-mts">Интерфейс</h4>
+              <p class="muted small-print settings-dry-note">Хранение настроек: браузер.</p>
+              <div class="settings-grid settings-grid--platform-inline">
+                <label class="settings-field">
+                  <span class="settings-label">Тема</span>
+                  <select id="settingTheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark" selected>Тёмная</option>
+                  </select>
+                </label>
+                <label class="settings-field">
+                  <span class="settings-label">Масштаб</span>
+                  <select id="settingUiScale">
+                    <option value="90">90%</option>
+                    <option value="100" selected>100%</option>
+                    <option value="110">110%</option>
+                  </select>
+                </label>
+                <label class="settings-field">
+                  <span class="settings-label">Шрифт кода</span>
+                  <select id="settingCodeFont">
+                    <option value="13">13 px</option>
+                    <option value="14" selected>14 px</option>
+                    <option value="15">15 px</option>
+                    <option value="16">16 px</option>
+                  </select>
+                </label>
+                <label class="settings-field settings-field--checkbox">
+                  <input type="checkbox" id="settingDefaultDeep" />
+                  <span>Режим «Глубоко» по умолчанию</span>
+                </label>
+                <label class="settings-field settings-field--checkbox">
+                  <input type="checkbox" id="settingPreferDiagTab" />
+                  <span>После ответа раскрывать диагностику</span>
+                </label>
+                <label class="settings-field settings-field--checkbox">
+                  <input type="checkbox" id="settingSaveHistory" checked />
+                  <span>Сохранять историю</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions platform-menu-actions">
+          <button type="button" id="platformMenuApplyBtn" class="btn-primary">Сохранить</button>
+        </div>
+        <p class="splash-replay-wrap muted small-print">
+          <button type="button" id="splashReplayBtn" class="ghost-btn ghost-btn--tiny">Экран приветствия ещё раз</button>
+        </p>
+      </div>
+    </dialog>
+
+    <dialog id="sourceDocDialog" class="source-doc-dialog">
+      <div class="modal-card source-doc-card">
+        <div class="source-doc-head">
+          <h3 id="sourceDocTitle" class="dialog-title-mts">Источник из базы знаний</h3>
+          <button type="button" id="sourceDocCloseBtn" class="ghost-btn">Закрыть</button>
+        </div>
+        <p id="sourceDocMeta" class="source-doc-meta muted"></p>
+        <pre id="sourceDocBody" class="source-doc-body"></pre>
+      </div>
+    </dialog>
+
+    <dialog id="editModal" class="edit-modal">
+      <form method="dialog" class="modal-card">
+        <h3 class="dialog-title-mts">Инструкция для правки</h3>
+        <textarea id="editInstruction" rows="5" placeholder="Например: добавь проверку на nil"></textarea>
+        <div class="modal-actions">
+          <button id="cancelEditBtn" type="button" class="ghost-btn">Отмена</button>
+          <button id="applyEditBtn" type="button">Применить</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </div>
+
+    <script>
+      (function () {
+        var KEY = "localscript_splash_ok";
+        var gate = document.getElementById("splashGate");
+        var app = document.getElementById("appMain");
+        var btn = document.getElementById("splashContinueBtn");
+        if (!gate || !app) return;
+
+        function enterApp() {
+          gate.setAttribute("hidden", "");
+          gate.setAttribute("aria-hidden", "true");
+          gate.classList.add("splash-gate--done");
+          app.removeAttribute("hidden");
+          document.body.classList.remove("splash-body-lock");
+          try {
+            sessionStorage.setItem(KEY, "1");
+          } catch (e) {
+            /* ignore */
+          }
+          requestAnimationFrame(function () {
+            try {
+              var g = document.getElementById("profileGuestBtn");
+              if (g) g.focus();
+            } catch (e2) {
+              /* ignore */
+            }
+          });
+        }
+
+        try {
+          if (sessionStorage.getItem(KEY) === "1") {
+            enterApp();
+            return;
+          }
+        } catch (e) {
+          /* private mode: show splash every time */
+        }
+
+        btn && btn.addEventListener("click", enterApp);
+      })();
+    </script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

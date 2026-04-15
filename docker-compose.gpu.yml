@@ -1,0 +1,6 @@
+# Подключение NVIDIA GPU к Ollama (только если драйвер и Docker видят GPU).
+# Имя проекта / volumes — как в docker-compose.yml (localscript).
+# Запуск: docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+services:
+  ollama:
+    gpus: all
