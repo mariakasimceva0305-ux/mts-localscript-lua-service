@@ -1,31 +1,8 @@
-# LocalScript Lua Generation Service
+# Генерация Lua-скриптов для Octapi
 
 Локальный сервис генерации **Lua** для сценариев **MWS Octapi (LocalScript)**. Конвейер: уточнение запроса при необходимости → **лексический RAG (BM25 / Whoosh)** → **Ollama** (без внешних LLM API) → извлечение кода → **`luac` (Lua 5.5)** → при ошибке синтаксиса **reflexion** (второй проход). Поставляется с **Docker Compose**, веб-интерфейсом и HTTP API на **FastAPI**.
 
 Подробная архитектура, контракты эндпоинтов и ограничения: [**INFO.md**](INFO.md). Материалы для защиты и чеклисты: [**docs/jury/**](docs/jury/).
-
----
-
-## Сдача на хакатоне (репозиторий организаторов)
-
-Официальная приёмка — в **командном** проекте на GitLab True Tech Arena. К дедлайну в нём должен быть актуальный `main` и документация.
-
-**Репозиторий команды (основной для жюри):**  
-[tta/true-tech-hack2026-localscript/dsc/task-repo](https://git.truetecharena.ru/tta/true-tech-hack2026-localscript/dsc/task-repo)
-
-Публикация в него с локальной машины (после входа в GitLab под учётной записью с доступом к проекту):
-
-```powershell
-cd "C:\Users\Мария\OneDrive\Desktop\node_modules"
-git remote add tta-task https://git.truetecharena.ru/tta/true-tech-hack2026-localscript/dsc/task-repo.git
-git push -u tta-task main
-```
-
-Если в `task-repo` уже есть коммиты (например README от площадки), возможны отказ non-fast-forward или конфликт — тогда: `git fetch tta-task`, согласовать историю (`merge` / `rebase`) или по регламенту осторожно `git push --force-with-lease tta-task main`.
-
-**Личный репозиторий (копия):** [mariakasimceva/mts-localscript-lua-service](https://git.truetecharena.ru/mariakasimceva/mts-localscript-lua-service/-/tree/main) — не подменяет командный `task-repo`, если в правилах указан групповой проект.
-
-Публикация на **GitHub** — опционально для портфолио. **CI/CD площадки хакатона не используются** — воспроизводимость проверяется локально (рекомендуется Docker).
 
 ---
 
@@ -57,9 +34,6 @@ git push -u tta-task main
 Клонируйте репозиторий в каталог с **осмысленным именем** (не используйте имя `node_modules`).
 
 ```bash
-# Жюри / команда — эталонный проект на GitLab TTA:
-# git clone https://git.truetecharena.ru/tta/true-tech-hack2026-localscript/dsc/task-repo.git localscript-lua-service
-
 git clone https://github.com/mariakasimceva0305-ux/mts-localscript-lua-service.git localscript-lua-service
 cd localscript-lua-service
 npm ci
